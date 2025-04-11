@@ -34,10 +34,10 @@ const Navbar = ({ onSearch, currentLocation }) => {
             </div>
 
             {/* Phần ô tìm kiếm và nút tìm kiếm */}
-            <div className='w-1/3'>
+            <form className='w-1/3' onSubmit={(e) => { e.preventDefault(); handleSearchClick(); }}>
                 <TextField
                     className='w-3/4'
-                    label='Search City' // Nhãn hiển thị trên ô tìm kiếm
+                    label='Search City' // Nhãn hiển thị trên ô tìm kiếms
                     variant='outlined' // Kiểu viền của ô input
                     size='small' // Kích thước nhỏ để phù hợp với giao diện
                     value={searchCity} // Giá trị từ state
@@ -46,7 +46,7 @@ const Navbar = ({ onSearch, currentLocation }) => {
                 <Button onClick={handleSearchClick} color='black' endIcon={<SearchIcon />}>
                     Search
                 </Button>
-            </div>
+            </form>
             
             {/* Nút cho phép lấy vị trí hiện tại của người dùng */}
             <div className='mr-6'>

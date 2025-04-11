@@ -1,25 +1,8 @@
 import React, { useState, useEffect, useCallback, useMemo } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import Board from "./Board";
-import { easyAI, mediumAI, hardAI } from "../../utils/api"; // Cập nhật đường dẫn import
-import { checkWinner1 } from "../../utils/api"; // Thêm hàm checkWinner từ api
-
-// Hàm check winner (nếu không import được từ api)
-const checkWinnerFunction = (board) => {
-  const winPatterns = [
-    [0, 1, 2], [3, 4, 5], [6, 7, 8], // Hàng ngang
-    [0, 3, 6], [1, 4, 7], [2, 5, 8], // Hàng dọc
-    [0, 4, 8], [2, 4, 6]             // Đường chéo
-  ];
-
-  for (const pattern of winPatterns) {
-    const [a, b, c] = pattern;
-    if (board[a] && board[a] === board[b] && board[a] === board[c]) {
-      return board[a];
-    }
-  }
-  return null;
-};
+import { easyAI, mediumAI, hardAI } from "../../utils/gameAI";
+import { checkWinner } from "../../utils/gameLogic";
 
 // Bọc component Game bằng React.memo để tránh render lại không cần thiết
 const Game = React.memo(() => {
@@ -39,17 +22,26 @@ const Game = React.memo(() => {
 
   // Khi bàn cờ thay đổi, kiểm tra xem có ai thắng chưa
   useEffect(() => {
-    // Sử dụng checkWinner từ import nếu có, nếu không thì dùng hàm local
-    const winnerChecker = typeof checkWinner === 'function' ? checkWinner : checkWinnerFunction;
-    const gameWinner = winnerChecker(board);
+    const gameWinner = checkWinner(board);
     if (gameWinner) {
-      setWinner(gameWinner);
-      alert(`🎉 Chúc mừng! ${gameWinner} chiến thắng!`);
+      setWinner(gameWinner); // chỉ cập nhật winner, không alert ngay
     } else if (!board.includes(null)) {
-      setIsDraw(true);
-      alert("🤝 Trận đấu hòa!");
+      setIsDraw(true); // cũng không alert ở đây
     }
   }, [board]);
+  
+  useEffect(() => {
+    if (winner) {
+      setTimeout(() => {
+        alert(`🎉 Chúc mừng! ${winner} chiến thắng!`);
+      }, 100); // delay nhẹ để giao diện kịp render
+    } else if (isDraw) {
+      setTimeout(() => {
+        alert("🤝 Trận đấu hòa!");
+      }, 100);
+    }
+  }, [winner, isDraw]);
+  
 
   // Nếu đang ở chế độ chơi với máy, thì để AI đánh khi đến lượt
   useEffect(() => {
@@ -87,7 +79,7 @@ const Game = React.memo(() => {
 
   // Xử lý quay lại trang chủ
   const handleGoHome = useCallback(() => {
-    navigate("/tictactoe");
+    navigate("/");
   }, [navigate]);
 
   // Trả về giao diện của component

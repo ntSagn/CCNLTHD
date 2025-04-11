@@ -34,7 +34,7 @@ function WeatherApp() {
         setError(error.message);
       });
   }, [city]);
-
+  
   // Hàm fetch dữ liệu chất lượng không khí dựa trên tọa độ
   const fetchAirQualityData = useCallback((lat, lon) => {
     const API_KEY1 = import.meta.env.VITE_API_KEY1;
@@ -79,6 +79,8 @@ function WeatherApp() {
   useEffect(() => {
     fetchWeatherData();
   }, [fetchWeatherData]);
+
+  // console.log(weatherData, airQualityData, fiveDaysForecast); // Log dữ liệu để kiểm tra
 
   return (
     <div>
