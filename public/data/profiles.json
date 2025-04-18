@@ -1,0 +1,83 @@
+[
+  {
+    "name": "Thanh Hà",
+    "job": "Frontend Developer",
+    "location": "Đà Nẵng",
+    "email": "thanhha.dev@example.com",
+    "phone": "+84 912 345 678",
+    "address": "24 Lê Duẩn, Đà Nẵng",
+    "website": "thanhha.dev",
+    "birthday": "August 12, 1991",
+    "gender": "Female",
+    "rating": "9.1",
+    "skills": ["React", "JavaScript", "Tailwind CSS"],
+    "image": "https://images.unsplash.com/photo-1511367461989-f85a21fda167",
+    "avatar": "https://i.pravatar.cc/40?img=10",
+    "work": [
+      {
+        "place": "VNG Corporation",
+        "type": "Primary",
+        "address": "182 Lê Đại Hành, Quận 11, TP.HCM"
+      },
+      {
+        "place": "FPT Software",
+        "type": "Secondary",
+        "address": "Đường Trần Thái Tông, Cầu Giấy, Hà Nội"
+      }
+    ]
+  },
+  {
+    "name": "Trung Hiếu",
+    "job": "UI/UX Designer",
+    "location": "TP. Hồ Chí Minh",
+    "email": "trunghieu.ui@example.com",
+    "phone": "+84 987 654 321",
+    "address": "99 Nguyễn Huệ, Quận 1, TP.HCM",
+    "website": "trunghieu.design",
+    "birthday": "March 9, 1994",
+    "gender": "Male",
+    "rating": "8.8",
+    "skills": ["Figma", "User Research", "Prototyping"],
+    "image": "https://images.unsplash.com/photo-1527980965255-d3b416303d12",
+    "avatar": "https://i.pravatar.cc/40?img=25",
+    "work": [
+      {
+        "place": "Tiki Corporation",
+        "type": "Primary",
+        "address": "52 Út Tịch, Phú Nhuận, TP.HCM"
+      },
+      {
+        "place": "Haravan",
+        "type": "Secondary",
+        "address": "456 Lý Thường Kiệt, Quận 10, TP.HCM"
+      }
+    ]
+  },
+  {
+    "name": "Thanh Việt",
+    "job": "Fullstack Developer",
+    "location": "Cần Thơ",
+    "email": "vietcode@example.com",
+    "phone": "+84 901 112 233",
+    "address": "15 Nguyễn Trãi, Ninh Kiều, Cần Thơ",
+    "website": "vietfullstack.dev",
+    "birthday": "December 22, 1990",
+    "gender": "Male",
+    "rating": "9.4",
+    "skills": ["Node.js", "MongoDB", "React", "Docker"],
+    "image": "https://images.unsplash.com/photo-1544723795-3fb6469f5b39",
+    "avatar": "https://i.pravatar.cc/40?img=32",
+    "work": [
+      {
+        "place": "Viettel Digital",
+        "type": "Primary",
+        "address": "Số 1 Giang Văn Minh, Ba Đình, Hà Nội"
+      },
+      {
+        "place": "Axon Active",
+        "type": "Secondary",
+        "address": "62 Trần Quốc Toản, Ninh Kiều, Cần Thơ"
+      }
+    ]
+  }
+]

@@ -1,14 +1,20 @@
 import React from 'react';
 
-function UserProfile({ name, age, job }) {
+import { useContext } from 'react';
+import { ProfileContext } from '../context/ProfileContext';
+
+export default function UserProfile() {
+    const { profiles, currentProfileIndex } = useContext(ProfileContext);
+    const profile = profiles[currentProfileIndex];
+
+    if (!profile) return <p>Đang tải dữ liệu...</p>;
+
     return (
-        <div className="profile">
-            <h2>📄 Hồ sơ người dùng</h2>
-            <p><strong>Tên:</strong> {name}</p>
-            <p><strong>Tuổi:</strong> {age}</p>
-            <p><strong>Nghề nghiệp:</strong> {job}</p>
+        <div>
+            {/* <p>1233333333333333333333333333333333333333333333333</p> */}
+            <h2>{profile.name}</h2>
+            <p>{profile.job}</p>
+            <img src={profile.avatar} alt={profile.name} />
         </div>
     );
 }
-
-export default UserProfile;

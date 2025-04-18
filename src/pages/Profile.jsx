@@ -1,27 +1,24 @@
-import React, { useState } from 'react';
-import Greeting from '../components/user-profile/Greeting';
-import ProfileCard from '../components/user-profile/ProfileCard';
-import "../assets/profile.css";
+import { useParams } from "react-router-dom";
+import { useContext } from "react";
+import { ProfileContext } from "../context/ProfileContext";
+import ProfileCard from "../components/user-profile/ProfileCard";
 
-function Profile() {
-    const profiles = [
-        { name: 'Nam', age: 22, job: 'Lập trình viên' },
-        { name: 'Linh', age: 24, job: 'Nhà thiết kế UI/UX' },
-        { name: 'Khôi', age: 21, job: 'Tester phần mềm' },
-    ];
+const Profile = () => {
+    const { id } = useParams();
+    const { profiles } = useContext(ProfileContext);
 
-    const [currentIndex, setCurrentIndex] = useState(0);
+    const profileIndex = parseInt(id, 10); // Chuyển từ chuỗi sang số
+    const profile = profiles[profileIndex];
+    console.log(profileIndex , profiles[0])
+    if (!profiles.length) {
+        return <div className="text-center p-4">Đang tải dữ liệu...</div>;
+    }
 
-    const handleChangeProfile = () => {
-        setCurrentIndex((prev) => (prev + 1) % profiles.length);
-    };
+    if (!profile) {
+        return <div className="text-center p-4 text-red-500">Không tìm thấy hồ sơ!</div>;
+    }
 
-    return (
-        <div className="app-container">
-            <Greeting />
-            <ProfileCard profile={profiles[currentIndex]} onChange={handleChangeProfile} />
-        </div>
-    );
-}
+    return <ProfileCard profile={profile} />;
+};
 
 export default Profile;
