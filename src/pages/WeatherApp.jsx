@@ -4,6 +4,7 @@ import MainWeather from '../components/weather-app/MainWeather';
 import Navbar from '../components/weather-app/Navbar';
 import HighlightWeather from '../components/weather-app/HighlightWeather';
 import Alert from '@mui/material/Alert';
+// import "../styles/weatherapp.css"
 
 function WeatherApp() {
   // Các state để lưu trữ dữ liệu
@@ -82,10 +83,11 @@ function WeatherApp() {
 
   // console.log(weatherData, airQualityData, fiveDaysForecast); // Log dữ liệu để kiểm tra
 
+
   return (
     <div>
       {/* Phần header với Navbar và thông báo lỗi nếu có */}
-      <div className='border-b-2'>
+      <div className='header border-b-2'>
         <Navbar onSearch={handleSearch} currentLocation={handleGetCurrentLocation}/>
         {error && (
           <div className='text-red-500 text-center'>
