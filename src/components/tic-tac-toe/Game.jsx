@@ -65,7 +65,7 @@ const Game = React.memo(() => {
     if (board[index] || winner || isDraw) return; // Không làm gì nếu ô đã đánh hoặc game kết thúc
     const newBoard = [...board];
     newBoard[index] = isXNext ? "X" : "O";
-    setBoard(newBoard);
+    setBoard(newBoard); 
     setIsXNext(!isXNext);
   }, [board, winner, isDraw, isXNext]);
 

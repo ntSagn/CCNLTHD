@@ -81,7 +81,7 @@ function WeatherApp() {
     fetchWeatherData();
   }, [fetchWeatherData]);
 
-  // console.log(weatherData, airQualityData, fiveDaysForecast); // Log dữ liệu để kiểm tra
+  console.log(weatherData, airQualityData, fiveDaysForecast); // Log dữ liệu để kiểm tra
 
 
   return (

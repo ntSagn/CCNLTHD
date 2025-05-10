@@ -85,11 +85,10 @@ function ProfileCard({ profile }) {
                             <div key={index} className="mb-2">
                                 <p className="font-medium">
                                     {w.place}
-                                    <span className={`ml-2 text-xs px-2 py-0.5 rounded-full ${
-                                        w.type === "Primary"
+                                    <span className={`ml-2 text-xs px-2 py-0.5 rounded-full ${w.type === "Primary"
                                             ? "bg-blue-100 text-blue-700"
                                             : "bg-gray-100 text-gray-600"
-                                    }`}>
+                                        }`}>
                                         {w.type}
                                     </span>
                                 </p>

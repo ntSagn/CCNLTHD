@@ -24,6 +24,7 @@ const TaskList = React.memo(({ tasks, onEdit, onDelete, onToggle }) => {
                                 <p className="text-sm text-blue-600 italic flex items-center gap-2">
                                     <CalendarIcon />
                                     {task.date || 'Chưa chọn ngày'}
+                                    <br />
                                     <ClockIcon />
                                     {task.time || 'Chưa chọn giờ'}
                                 </p>
